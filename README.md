@@ -89,10 +89,6 @@ This ensures you don’t get 404 errors on refresh.
 - Axios for API
 - WebSocket API
 
-## Screenshots
-
-*(Insert screenshots here)*
-
 ## Known Issues
 - `react-helmet-async` peer dependency warning for React 19
 - Some WebSocket messages may not update if disconnected
