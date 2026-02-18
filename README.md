@@ -1,73 +1,102 @@
-# React + TypeScript + Vite
+# React To-Do Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Features
+- Authentication (register/login/logout/me)
+- Todo CRUD (create/read/update/delete)
+- Real-time updates (WebSocket)
+- Filtering, search, pagination
+- Error handling & custom 404
+- Responsive and accessible UI (Tailwind, ShadCN, Lucide icons)
+- Protected routes
+- Offline capabilities (Tanstack Query caching)
 
-Currently, two official plugins are available:
+## Setup (Local Development)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```bash
+# Install dependencies
+npm install
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Run the development server
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Visit `http://localhost:5173` (or the port shown in your terminal).
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Production Build
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+# Build optimized static assets for production:
+npm run build
+
+# Preview the production build locally (optional, Vite only):
+npm run preview
 ```
+
+Built files will be output to the `dist/` directory (for Vite).
+
+## Deployment
+
+### Deploying to Netlify
+
+1. **Pushed the code to GitHub (or GitLab/Bitbucket).**
+
+2. **Created a Netlify account:**  
+   Go to [https://app.netlify.com/](https://app.netlify.com/) and sign in.
+
+3. **Start a new site:**  
+   Click “Add new site” > “Import an existing project”.
+
+4. **Connect your Git provider and select your repository.**
+
+5. **Set the build settings:**
+   - **Build command:**  
+     ```
+     npm run build
+     ```
+   - **Publish directory:**  
+     ```
+     dist
+     ```
+
+6. **(Optional) Add environment variables:**  
+   In Netlify dashboard, go to **Site settings > Environment Variables**.
+
+7. **Deploy the site!**
+
+#### ⚠️ Routing Fix for Single-Page Apps
+
+To support client-side routing, add a file named `_redirects` to your `public/` directory:
+
+```
+/*    /index.html   200
+```
+
+This ensures you don’t get 404 errors on refresh.
+
+---
+
+## Scripts
+
+- `npm run dev` — Start dev server
+- `npm run build` — Build for production
+
+## Tech Stack
+- React 19 (Functional + Hooks)
+- React Router
+- Tanstack Query & Form
+- TailwindCSS
+- ShadCN/UI, Lucide React
+- Axios for API
+- WebSocket API
+
+## Screenshots
+
+*(Insert screenshots here)*
+
+## Known Issues
+- `react-helmet-async` peer dependency warning for React 19
+- Some WebSocket messages may not update if disconnected
+
+## Future Improvements
+- Better offline sync
+- More user profile features
