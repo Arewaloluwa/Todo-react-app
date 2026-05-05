@@ -58,7 +58,7 @@ Built files will be output to the `dist/` directory (for Vite).
      dist
      ```
 
-6. **(Optional) Add environment variables:**  
+6. ** Add environment variables:**  
    In Netlify dashboard, go to **Site settings > Environment Variables**.
 
 7. **Deploy the site!**
